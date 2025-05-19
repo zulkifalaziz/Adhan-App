@@ -1,0 +1,49 @@
+/* src/input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full overflow-hidden m-0 p-0; /* Full height, no scroll, no margin/padding */
+  }
+  body {
+    /* Path relative to the FINAL output CSS file (style.css in root) */
+    background-image: url('assets/images/Background.jpg');
+    @apply bg-cover bg-center bg-no-repeat; /* Tailwind classes for background properties */
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Black color with 70% opacity */
+    z-index: -1;
+  }
+}
+
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height for horizontal scrollbar if any */
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(55, 65, 81, 0.5); /* bg-gray-700 with opacity, or a darker color */
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(107, 114, 128, 0.7); /* bg-gray-500 with opacity */
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.9); /* bg-gray-400 with opacity */
+  }
+  /* For Firefox - less customization possible */
+  .custom-scrollbar {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: rgba(107, 114, 128, 0.7) rgba(55, 65, 81, 0.5); /* thumb track */
+  }
+}

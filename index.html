@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <title>Adhan App - Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-white min-h-screen flex flex-col items-center justify-start pt-16 sm:pt-24 relative">
+    <!-- Background and overlay are typically handled by global body styles in style.css -->
+
+    <div class="absolute top-4 left-4 z-10">
+        <button
+            id="goToDashboardButton"
+            class="flex items-center justify-center bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition duration-150 ease-in-out"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+            </svg>
+            Dashboard
+        </button>
+    </div>
+
+    <div class="container mx-auto px-4 text-center w-full">
+
+        <h1 class="text-4xl sm:text-5xl font-bold text-blue-300 mb-10 sm:mb-16">Adhan App</h1>
+
+        <form id="locationForm" class="w-full max-w-sm mx-auto">
+            <div class="mb-6">
+                <input
+                    type="text"
+                    id="cityInput"
+                    name="city"
+                    placeholder="City"
+                    required
+                    class="bg-gray-700 bg-opacity-50 appearance-none border-2 border-gray-600 rounded w-full py-3 px-4 text-white placeholder-gray-400 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out"
+                />
+            </div>
+            <div class="mb-8">
+                <input
+                    type="text"
+                    id="countryInput"
+                    name="country"
+                    placeholder="Country"
+                    required
+                    class="bg-gray-700 bg-opacity-50 appearance-none border-2 border-gray-600 rounded w-full py-3 px-4 text-white placeholder-gray-400 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out"
+                />
+            </div>
+            <button
+                type="submit"
+                id="submitLocation"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+            >
+                Fetch Prayer Times
+            </button>
+        </form>
+
+        <!-- Loading Indicator (Progress Bar) -->
+        <div id="loadingContainer" class="mt-8 w-full max-w-sm mx-auto hidden">
+            <p id="progressText" class="text-sm text-blue-200 mb-1 text-center">Fetching data...</p>
+            <div class="w-full bg-gray-600 rounded-full h-4">
+                <div id="progressBar" class="bg-blue-500 h-4 rounded-full text-xs font-medium text-blue-100 text-center p-0.5 leading-none transition-all duration-300 ease-linear" style="width: 0%">
+                    0%
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Message -->
+        <div id="statusMessage" class="mt-6 p-3 rounded-md text-md hidden w-full max-w-sm mx-auto"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

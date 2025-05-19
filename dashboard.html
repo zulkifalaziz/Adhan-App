@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <title>Adhan App - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-white h-screen flex flex-col items-center bg-cover bg-center bg-no-repeat" style="background-image: url('assets/images/Background.jpg');">
+    <div class="absolute inset-0 bg-black opacity-70 z-0"></div>
+
+    <div class="relative z-10 w-full text-center pt-12 sm:pt-16">
+        <h1 class="text-4xl sm:text-5xl font-bold text-blue-300 mb-8 sm:mb-12">
+            Adhan App Dashboard
+        </h1>
+        <button
+            id="navigateToSearchButton"
+            class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 text-lg rounded-lg shadow-xl focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition duration-150 ease-in-out"
+        >
+            Search New City/Country
+        </button>
+        <hr class="border-gray-700 my-8 max-w-3xl mx-auto">
+    </div>
+
+    <div class="relative z-10 flex-grow w-full max-w-3xl mx-auto overflow-y-auto pb-12 px-4 custom-scrollbar">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-200 mb-6 text-center">
+            Saved Prayer Times
+        </h2>
+        <div class="bg-gray-800 bg-opacity-60 p-4 sm:p-6 rounded-lg shadow-xl overflow-x-auto">
+            <table id="savedTimesTable" class="min-w-full divide-y divide-gray-700 text-left table-fixed"> <!-- ADDED table-fixed -->
+                <thead class="bg-gray-700 bg-opacity-50 sticky top-0 z-20">
+                    <tr>
+                        <th scope="col" class="px-4 py-3 text-xs font-medium text-gray-300 uppercase tracking-wider w-2/5"> <!-- Added w-2/5 -->
+                            City
+                        </th>
+                        <th scope="col" class="px-4 py-3 text-xs font-medium text-gray-300 uppercase tracking-wider w-2/5"> <!-- Added w-2/5 -->
+                            Country
+                        </th>
+                        <th scope="col" class="px-4 py-3 text-xs font-medium text-gray-300 uppercase tracking-wider text-left w-1/5"> <!-- Added text-left and w-1/5 -->
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-600" id="savedTimesTableBody">
+                    <!-- Rows will be injected here by dashboard_renderer.js -->
+                </tbody>
+            </table>
+            <p id="noSavedDataMessage" class="text-gray-400 py-4 text-center hidden">
+                No prayer time data has been saved yet.
+            </p>
+        </div>
+    </div>
+
+    <script src="dashboard_renderer.js"></script>
+</body>
+</html>

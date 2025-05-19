@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+    <title>Prayer Times</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-white min-h-screen flex flex-col items-center justify-start pt-12 sm:pt-20 relative">
+
+    <div class="absolute top-4 left-4 z-10">
+        <button
+            id="goToDashboardButtonFromTimes"
+            class="flex items-center justify-center bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75 transition duration-150 ease-in-out"
+        >
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+            </svg>
+            Dashboard
+        </button>
+    </div>
+
+    <div class="container mx-auto px-4 text-center w-full">
+        <!-- Date Display -->
+        <div class="flex flex-col justify-center items-center w-full max-w-lg mx-auto mb-4 sm:mb-6"> <!-- Reduced bottom margin -->
+            <h1 id="currentDateDisplay" class="text-3xl sm:text-4xl font-bold text-blue-300 mx-auto whitespace-nowrap">
+                <!-- Date will be injected here -->
+            </h1>
+            <!-- Location Display - Moved under the date -->
+            <p id="locationDisplay" class="text-gray-300 text-sm mt-2"></p>
+        </div>
+
+        <!-- Prayer Times Container -->
+        <div id="prayerTimesContainer" class="w-full max-w-lg mx-auto bg-gray-800 bg-opacity-70 p-6 sm:p-8 rounded-lg shadow-xl">
+            <div class="text-left space-y-3 text-base sm:text-lg" id="prayerList">
+                <!-- Prayer times, Adhan selection, and Edit icons will be injected here -->
+            </div>
+        </div>
+
+        <!-- Status Messages (kept separate for clarity) -->
+        <div class="w-full max-w-lg mx-auto mt-4 text-center"> <!-- Reduced top margin -->
+            <p id="autoSaveStatusMessage" class="text-sm mt-3 hidden"></p>
+            <p id="editTimeStatusMessage" class="text-sm mt-2 hidden"></p>
+        </div>
+
+        <!-- Navigation Buttons - At the bottom of the page -->
+        <div class="w-full max-w-lg mx-auto mt-8 text-center">
+            <div class="flex justify-between items-center w-full">
+                <button
+                    id="backButton" <!-- Will be "Prev Day" -->
+                    class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-150 ease-in-out"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    Prev Day <!-- Defaulting to "Prev Day", JS will manage -->
+                </button>
+                <button
+                    id="nextDayButton"
+                    class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-150 ease-in-out"
+                >
+                    Next Day
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="times_renderer.js"></script>
+</body>
+</html>
