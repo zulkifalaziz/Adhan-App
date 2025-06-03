@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Inactivity Timer Logic ---
     let inactivityTimer;
-    const INACTIVITY_TIMEOUT_MS = 5 * 1000; // 1 minute (60000 ms)
+    const INACTIVITY_TIMEOUT_MS = 5 * 1000; // 5 seconds
 
     function resetInactivityTimer() {
         // console.log("DashboardRenderer: Activity detected, resetting inactivity timer.");
